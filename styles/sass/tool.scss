@@ -1,0 +1,21 @@
+@import "compass/css3";
+@import "variables";
+@import "arrows";
+
+.a {
+  @include v-arrow(100px, 30px);
+}
+// fixed bottom button
+// center
+@mixin c-btn($width, $lineH, $bg, $color) {
+  position: absolute;
+  left: 50%;
+  margin-left: -$width/2;
+  width: $width;
+  line-height: $lineH;
+  background: $bg;
+  color: $color;
+  text-align: center;
+  text-decoration: none;
+  @include border-radius(4px);
+}

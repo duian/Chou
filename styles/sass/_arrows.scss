@@ -1,0 +1,52 @@
+// arrow
+@include keyframes(move) {
+  0% {
+    @include transform(translate3d(0, 0, 0));
+  }
+  45% {
+    @include transform(translate3d(0, -7.5px, 0));
+    opacity: 1;
+  }
+  100% {
+    @include transform(translate3d(0, -15px, 0));
+    opacity: 0;
+  }
+}
+
+@mixin arrow($width, $height) {
+  @include animation-name(move);
+  @include animation-duration(1.5s);
+  @include animation-iteration-count(infinite);
+  @include animation-timing-function(ease-in-out);
+  position: fixed;
+  width: $width;
+  height: $height;
+  @include background-size(cover);
+  z-index: 1010;
+}
+@mixin v-arrow($width, $height) {
+  @include arrow($width, $height);
+  top: 50%;
+  margin-top: -$height / 2;
+}
+@mixin h-arrow($width, $height) {
+  @include arrow($width, $height);
+  left: 50%;
+  margin-left: -$width/2;
+}
+@mixin u-arrow($t) {
+  top: $t;
+  background: url(../../images/uarrow.png) no-repeat;
+}
+@mixin r-arrow($r) {
+  right: $r;
+  background: url(../../images/rarrow.png) no-repeat;
+}
+@mixin b-arrow($b) {
+  bottom: $b;
+  background: url(../../images/barrow.png) no-repeat;
+}
+@mixin l-arrow($l) {
+  left: $l;
+  background: url(../../images/larrow.png) no-repeat;
+}
